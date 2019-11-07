@@ -6,8 +6,8 @@ const url = process.env.MONGODB_URI
 
 console.log('connecting to', url)
 
-mongoose.connect(url, {useNewUrlParser: true})
-  .then(result => {
+mongoose.connect(url, { useNewUrlParser: true })
+  .then(() => {
     console.log('connected to MongoDB')
   })
   .catch((error) => {
@@ -26,7 +26,7 @@ const personSchema = new mongoose.Schema({
     minlength: 8,
     required: true,
     unique: true
-  }  
+  }
 })
 
 personSchema.plugin(uniqueValidator)
